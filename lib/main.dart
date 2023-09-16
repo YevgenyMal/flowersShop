@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: 'More Flowers',
+      title: 'LUX Flowers',
       home: MyHomePage(),
     );
   }
@@ -25,10 +25,10 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  LayoutBuilderResp(
+    return const LayoutBuilderResp(
       mobileScreenLayout: MyMobileBody(),
-      tabletScreenLayout: MyDesktopBody(),
-      webScreenLayout: MyTabletBody(),
+      tabletScreenLayout: MyTabletBody(),
+      webScreenLayout: MyDesktopBody(),
     );
   }
 }

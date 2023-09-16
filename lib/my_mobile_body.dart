@@ -1,6 +1,4 @@
-import 'dart:developer';
-
-import 'package:flowers/custom_button.dart';
+import 'package:flowers/global_appbar.dart';
 import 'package:flutter/material.dart';
 
 class MyMobileBody extends StatelessWidget {
@@ -13,58 +11,7 @@ class MyMobileBody extends StatelessWidget {
       body: Column(
         children: [
           const SizedBox(height: 25),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Row(
-                children: [
-                  Container(
-                    height: 50,
-                    color: Colors.transparent,
-                    child: Image.asset("assets/images/logo_transparent.png"),
-                  ),
-                  const SizedBox(width: 10),
-                  const Text(
-                    'More Flowers',
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  )
-                ],
-              ),
-              Column(
-                children: [
-                  Row(
-                    children: [
-                      CustomButton(
-                        onTap: () => log('adfjkwvhef'),
-                        title: 'Button 1',
-                      ),
-                      CustomButton(
-                        onTap: () => log('adfjkwvhef'),
-                        title: 'Button 2',
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 8),
-                  Row(
-                    children: [
-                      CustomButton(
-                        onTap: () => log('adfjkwvhef'),
-                        title: 'Button 3',
-                      ),
-                      CustomButton(
-                        onTap: () => log('adfjkwvhef'),
-                        title: 'Button 4',
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ],
-          ),
+          const GlobalAppBar(),
           const SizedBox(height: 20),
           Container(
             height: 20,

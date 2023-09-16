@@ -6,14 +6,16 @@ class CustomButton extends StatefulWidget {
   final Color textActiveColor;
   final Color textInActiveColor;
   final String title;
+  final bool isActive;
   final Function() onTap;
   const CustomButton({
     required this.onTap,
     required this.title,
-    this.activeColor = Colors.green,
+    this.activeColor = const Color.fromARGB(255, 48, 126, 50),
     this.inActiveColor = Colors.grey,
     this.textActiveColor = Colors.white,
     this.textInActiveColor = Colors.white,
+    this.isActive = false,
     super.key,
   });
 
@@ -22,24 +24,26 @@ class CustomButton extends StatefulWidget {
 }
 
 class _CustomButtonState extends State<CustomButton> {
-  bool isActive = false;
+  bool isHovering = false;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: widget.onTap,
-      onHover: (isHovering) {
-        if (isHovering) {
-          isActive = true;
+      onHover: (hovering) {
+        if (hovering) {
+          isHovering = true;
         } else {
-          isActive = false;
+          isHovering = false;
         }
         setState(() {});
       },
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: isActive ? widget.activeColor : widget.inActiveColor,
+          color: isHovering || widget.isActive
+              ? widget.activeColor
+              : widget.inActiveColor,
         ),
         margin: const EdgeInsets.only(right: 8),
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
@@ -48,7 +52,9 @@ class _CustomButtonState extends State<CustomButton> {
           style: TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.normal,
-            color: isActive ? widget.textActiveColor : widget.textInActiveColor,
+            color: isHovering || widget.isActive
+                ? widget.textActiveColor
+                : widget.textInActiveColor,
           ),
         ),
       ),
